@@ -12,6 +12,13 @@ app.get('/ip', (req, res) => {
     .json({ ip: ip.address(), requestIp: requestIp.getClientIp(req) });
 });
 
+app.get('/delay', (req, res) => {
+  console.log('hit')
+  setTimeout(() => {
+    res.status(200).json({ msg: 'success' })
+  }, 3000);
+})
+
 app.listen(7071, (req, res) => {
   console.log('started');
 });
